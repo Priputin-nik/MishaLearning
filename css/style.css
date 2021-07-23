@@ -1,11 +1,11 @@
 .container {
     display: grid;
-    grid-template-columns: 1fr 250px 300px 1fr;
-    grid-template-rows: 100px 200px 40px 200px;
+    grid-template-columns: 1fr 200px 340px 1fr;
+    grid-template-rows: 100px 70px 70px 70px 200px 40px 200px;
 
 }
 .character {
-    grid-area: 2/2/3/3;
+    grid-area: 2/2/5/3;
 
 }
 .parameters {
@@ -18,7 +18,7 @@
 }
 /* Stars */
 .stars {
-    grid-area: 3/2/4/3;
+    grid-area: 5/2/6/3;
 }
 .star {
     display: inline-block;
@@ -39,19 +39,80 @@
     opacity: 1;
 }
 
-/* Parametres */
+/* Parametres общие стили */
+/* Полоска с изображениями */
 .parameter {
     display: inline-block;
-    width: 300px;
+    position: absolute;
+    width: 240px;
     height: 30px;
     border-radius: 10px;
-
-}
-.int-parameter {
-    background-image: url(/img/book.png);
     border: 1px solid;
-
+    z-index: 0;
+}
+/* Общий контейнер, определяющий координаты для позиционирования вложенных элементов */
+.parameter-container {
+    position: relative;
+}
+/* Наименование параметра */
+.parameter-container .name-parameter {
+    position: absolute;
+}
+/* Блок, закрывающий полосу с изображениями*/
+.cover-par {
+    position: absolute;
+    display: inline-block;
+    background-color: white;
+    border: 2px solid;
+    opacity: 1;
+    width: 240px;
+    height: 30px;
+    border-radius: 10px;
+    z-index: 1;
+}
+/* стили кнопок "+" и "-"*/
+.button-plus-minus {
+    position: absolute;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid;
+    text-align: center;
+    border-radius: 50%;
+}
+.counter {
+    display: inline-block;
+    position: absolute;
+    border: 2px solid;
+}
+/* Интеллект */
+/* Полоса с изображениями - шкала "Интеллект"*/
+.int-parameter {
+    top: 30px;
+    right: 16px;
+    background-image: url(/img/book.png);
     background-size: 25px;
     background-repeat: round;
     background-position: 25px;
 }
+/* Позиционирование блока, закрывающего полосу "Интеллект"*/
+.cover-int-par {
+    right: 16px;
+    top: 30px;
+}
+/* Позиционирование кнопок "+" и "-" для "Интеллект"*/
+.plus-int {
+    top: 35px;
+    right: -15px;
+}
+.minus-int {
+    top: 35px;
+    right: 270px;
+}
+/* Позиционирование счетчика "Интеллект"*/
+.counterInt {
+    top: 35px;
+    right: -35px;
+
+}
+
