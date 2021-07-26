@@ -7,14 +7,12 @@ for (let currentStar of stars) {
         currentStar.classList.toggle('no-active-star');
     });
 }
-let plusInt = document.querySelector('.plus-int');
-let minusInt = document.querySelector('.minus-int');
 
 // Настройка повышения и понижения показателей
 
 let width = ["240px", "215px", "190px", "165px", "140px", "120px", "95px", "70px", "45px", "22px", "0px"];
-let coverInt = document.querySelector('.cover-int-par');
-let counterInt = document.querySelector('.counterInt');
+
+// Функция поиска следующего и предыдущего значений
 let searchElement = function(currentWidth) {
     let predNext = [];
     for (let i = 0; i < width.length; i++) {
@@ -23,35 +21,45 @@ let searchElement = function(currentWidth) {
             predNext[1] = width[i+1];
         }
     }
-   
     return predNext;
 }
-
-//событие на клик по плюсу/минусу
-plusInt.addEventListener ('click', function() {
-    let aroundWidth = searchElement(getComputedStyle(coverInt).width);
-    if (getComputedStyle(coverInt).width === "0px") {
-        coverInt.style.width = "240px";
+// Событие на клик по "+"
+let plus = document.querySelectorAll('.plus');
+for (let currentPlus of plus) {
+    currentPlus.addEventListener ('click', function(){
+    let aroundWidth = searchElement(getComputedStyle(currentPlus.previousElementSibling).width);
+    if (getComputedStyle(currentPlus.previousElementSibling).width === "0px") {
+        currentPlus.previousElementSibling.style.width = "240px";
         let firstNoActiveStars = document.querySelector('.no-active-star');
         firstNoActiveStars.classList.toggle('stars_click');
         firstNoActiveStars.classList.toggle('no-active-star');
     }
-    else{
-    coverInt.style.width = aroundWidth[1];
-    counterInt.textContent ++;
+    else {
+        currentPlus.previousElementSibling.style.width = aroundWidth[1];
+    let counter = currentPlus.parentElement.querySelector('.counter');
+    counter.textContent ++;
 }
 });
-
-minusInt.addEventListener('click', function() {
-    let aroundWidth = searchElement(getComputedStyle(coverInt).width);
-    if (getComputedStyle(coverInt).width === "240px") {
+}
+// Событие на клик по "-"
+let minus = document.querySelectorAll('.minus');
+for (let currentMinus of minus) {
+    currentMinus.addEventListener('click', function() {
+    let cover = currentMinus.parentElement.querySelector(".cover-par");
+    let aroundWidth = searchElement(getComputedStyle(cover).width);
+    if (getComputedStyle(cover).width === "240px") {
         alert("Отнимать нельзя!");
     }
     else {
-    coverInt.style.width = aroundWidth[0];
-    counterInt.textContent --;
+        cover.style.width = aroundWidth[0];
+        let counter = currentMinus.parentElement.querySelector(".counter");
+        counter.textContent --;
     }
 });
+}
+
+// Корректровка левой границы закрывающей полоски
+
+
 
 // Смена персонажей
-let characters = ["/img/lvl1.png", "/img/lvl2.png"]

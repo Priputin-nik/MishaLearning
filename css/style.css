@@ -1,6 +1,6 @@
 .container {
     display: grid;
-    grid-template-columns: 1fr 200px 340px 1fr;
+    grid-template-columns: 1fr 240px 340px 1fr;
     grid-template-rows: 100px 70px 70px 70px 200px 40px 200px;
 
 }
@@ -9,8 +9,16 @@
 
 }
 .parameters {
-    grid-area: 2/3/4/4;
-
+    position: relative;
+}
+.parameter-int {
+    grid-area: 2/3/3/4;
+}
+.parameter-str {
+    grid-area: 3/3/4/4; 
+}
+.parameter-wol {
+    grid-area: 4/3/5/4;
 }
 .character img {
     width: 180px;
@@ -42,21 +50,27 @@
 /* Parametres общие стили */
 /* Полоска с изображениями */
 .parameter {
+    top: 30px;
+    right: 60px;
     display: inline-block;
     position: absolute;
     width: 240px;
     height: 30px;
     border-radius: 10px;
-    border: 1px solid;
+    border: 2px solid;
     z-index: 0;
+    background-size: 25px;
+    background-repeat: round;
+    background-position: 25px;
 }
-/* Общий контейнер, определяющий координаты для позиционирования вложенных элементов */
-.parameter-container {
-    position: relative;
+/* Позиционирование закрывающего блока */
+.cover-par {
+    right: 60px;
+    top: 30px;
 }
 /* Наименование параметра */
 .parameter-container .name-parameter {
-    position: absolute;
+   
 }
 /* Блок, закрывающий полосу с изображениями*/
 .cover-par {
@@ -64,10 +78,11 @@
     display: inline-block;
     background-color: white;
     border: 2px solid;
+    border-left: 0px;
     opacity: 1;
     width: 240px;
     height: 30px;
-    border-radius: 10px;
+    border-radius: 0px 10px 10px 0px;
     z-index: 1;
 }
 /* стили кнопок "+" и "-"*/
@@ -76,43 +91,53 @@
     display: inline-block;
     width: 20px;
     height: 20px;
-    border: 2px solid;
+    border: 2px solid black;
     text-align: center;
     border-radius: 50%;
+    user-select: none; 
 }
+.button-plus-minus:hover {
+    background-color: #ffc107;
+}
+.plus:active {
+    background-color: blue;
+    color: white;
+}
+.minus:active {
+    background-color: red;
+    color: white;
+}
+/* Позиционирование кнопок "+" и "-"*/
+.plus {
+    top: 35px;
+    right: 30px;
+}
+.minus {
+    top: 35px;
+    right: 310px;
+}
+/*Стили и позиционирование счетчиков*/
 .counter {
     display: inline-block;
     position: absolute;
     border: 2px solid;
+    top: 35px;
+    right: 0px;
 }
 /* Интеллект */
 /* Полоса с изображениями - шкала "Интеллект"*/
 .int-parameter {
-    top: 30px;
-    right: 16px;
     background-image: url(/img/book.png);
-    background-size: 25px;
-    background-repeat: round;
-    background-position: 25px;
-}
-/* Позиционирование блока, закрывающего полосу "Интеллект"*/
-.cover-int-par {
-    right: 16px;
-    top: 30px;
-}
-/* Позиционирование кнопок "+" и "-" для "Интеллект"*/
-.plus-int {
-    top: 35px;
-    right: -15px;
-}
-.minus-int {
-    top: 35px;
-    right: 270px;
-}
-/* Позиционирование счетчика "Интеллект"*/
-.counterInt {
-    top: 35px;
-    right: -35px;
-
 }
 
+/* Сила */
+/* Полоса с изображениями - шкала "Сила"*/
+.str-parameter {
+    background-image: url(/img/strength.png);
+}
+
+/* Воля */
+/* Полоса с изображениями - шкала "Воля"*/
+.wol-parameter {
+    background-image: url(/img/willpower.png);
+}
