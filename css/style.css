@@ -68,10 +68,7 @@
     right: 60px;
     top: 30px;
 }
-/* Наименование параметра */
-.parameter-container .name-parameter {
-   
-}
+
 /* Блок, закрывающий полосу с изображениями*/
 .cover-par {
     position: absolute;
@@ -140,4 +137,29 @@
 /* Полоса с изображениями - шкала "Воля"*/
 .wol-parameter {
     background-image: url(/img/willpower.png);
+}
+
+
+/* Блок "Все персонажи" */
+.heroes {
+    display: inline-block;
+    position: relative;
+    width: 800px;
+    height: 1200px;
+    grid-area: 2/2/4/4;
+    background-color: yellow;
+    z-index: 3;
+    border: 6px double;
+}
+.hidden {
+    display: none;
+}
+
+.hero {
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-left: 20p;
 }

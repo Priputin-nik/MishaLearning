@@ -61,5 +61,17 @@ for (let currentMinus of minus) {
 // Корректровка левой границы закрывающей полоски
 
 
+// Блок "Все персонажи"
+let blockHeroes = document.querySelector('.heroes');
+let templateHero = document.querySelector('#new-hero').content;
+
+
+for (let i =1; i <=10; i++){
+    let newHero = templateHero.querySelector('.hero').cloneNode(true);
+let linkHero = "url(/img/lvl"+i+".png)";
+newHero.style.backgroundImage = linkHero;
+blockHeroes.appendChild(newHero);
+}
+// "url(/img/lvl1.png)"
 
 // Смена персонажей
