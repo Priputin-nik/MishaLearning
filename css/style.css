@@ -1,7 +1,26 @@
+
+body {
+    background-image: url(/img/background.jpg);
+    position: relative;
+}
+
 .container {
     display: grid;
     grid-template-columns: 1fr 240px 340px 1fr;
-    grid-template-rows: 100px 70px 70px 70px 200px 40px 200px;
+    grid-template-rows: 100px 70px 70px 70px 70px 40px 200px;
+
+}
+.lower-layer {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    margin-left: -320px;
+    z-index: -1;
+    height: 1600px;
+    width: 640px;
+    background-image: url(/img/paper.jpg);
+    opacity: 1;
+    border: 3px solid black;
 
 }
 .character {
@@ -20,17 +39,31 @@
 .parameter-wol {
     grid-area: 4/3/5/4;
 }
+
+/* Разделитель */
+
+.separator {
+    display: inline-block;
+    height: auto;
+    width: 600px;
+    grid-area: 6/2/7/4;
+}
+
+/* Иконка текущего персонажа */
+
 .character img {
     width: 180px;
     border: 6px double;
 }
+
 /* Stars */
+
 .stars {
     grid-area: 5/2/6/3;
 }
 .star {
     display: inline-block;
-    background-image: url("/img/star.png");
+    background-image: url(/img/star1.png);
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: 30px;
@@ -47,8 +80,8 @@
     opacity: 1;
 }
 
-/* Parametres общие стили */
 /* Полоска с изображениями */
+
 .parameter {
     top: 30px;
     right: 60px;
@@ -63,13 +96,16 @@
     background-repeat: round;
     background-position: 25px;
 }
+
 /* Позиционирование закрывающего блока */
+
 .cover-par {
     right: 60px;
     top: 30px;
 }
 
 /* Блок, закрывающий полосу с изображениями*/
+
 .cover-par {
     position: absolute;
     display: inline-block;
@@ -82,7 +118,9 @@
     border-radius: 0px 10px 10px 0px;
     z-index: 1;
 }
+
 /* стили кнопок "+" и "-"*/
+
 .button-plus-minus {
     position: absolute;
     display: inline-block;
@@ -104,7 +142,9 @@
     background-color: red;
     color: white;
 }
+
 /* Позиционирование кнопок "+" и "-"*/
+
 .plus {
     top: 35px;
     right: 30px;
@@ -113,7 +153,9 @@
     top: 35px;
     right: 310px;
 }
+
 /*Стили и позиционирование счетчиков*/
+
 .counter {
     display: inline-block;
     position: absolute;
@@ -123,43 +165,144 @@
 }
 /* Интеллект */
 /* Полоса с изображениями - шкала "Интеллект"*/
+
 .int-parameter {
     background-image: url(/img/book.png);
 }
 
 /* Сила */
 /* Полоса с изображениями - шкала "Сила"*/
+
 .str-parameter {
     background-image: url(/img/strength.png);
+    background-position: 25px 30px;
 }
 
 /* Воля */
 /* Полоса с изображениями - шкала "Воля"*/
+
 .wol-parameter {
     background-image: url(/img/willpower.png);
 }
 
+/* Надписи Параметров */
+
+.name-parameter {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 700;
+}
 
 /* Блок "Все персонажи" */
+
 .heroes {
     display: inline-block;
     position: relative;
-    width: 800px;
-    height: 1200px;
-    grid-area: 2/2/4/4;
-    background-color: yellow;
+    width: 530px;
+    height: auto;
+    grid-area: 7/2/9/4;
     z-index: 3;
     border: 6px double;
+    padding: 20px;
 }
 .hidden {
-    display: none;
+    visibility: hidden;
 }
+
+/* Каждый Герои */
 
 .hero {
     display: inline-block;
-    width: 120px;
-    height: 120px;
+    position: relative;
+    width: 110px;
+    height: 110px;
     margin-right: 10px;
     margin-top: 20px;
     margin-left: 20p;
+    border: 2px solid black;
+}
+
+/* Контейнер с кнопками "Показать Героев" и "Сменить Героя" */
+
+.buttons-container {
+    display: inline-block;
+    position: relative;
+    grid-area: 5/3/6/4;
+}
+
+/* Кнопки "Показать героев" и "Сменить Героя" */
+
+.heroes-button {
+    display: inline-block;
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    grid-area: 5/3/6/4;
+    border: 2px solid black;
+    border-radius: 15px;
+    height: 40px;
+    width: 90px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 13px;
+    text-align: center;    
+    user-select: none;
+}
+.heroes-button span {
+    display: inline-block;
+    line-height: 20px;
+}
+
+.active-button {
+    background-color: rgba(255, 193, 7, 0.3);
+}
+.active-button:active {
+    background-color: rgba(255, 193, 7, 1);
+}
+.no-active-button {
+    background-color: rgba(148, 139, 139, 1);
+}
+/* Позиционирование кнопки "Показать всех Героев" */
+
+.show-all-heroes {
+    left: 20px;
+    top: 15px;
+}
+
+/* Позиционирование кнопки "Сменить Героя" */
+
+.change-hero {
+    left: 150px;
+    top: 15px;
+}
+
+
+
+/* Кнопка "Закрыть Героев" */
+
+ .button-close-heroes {
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-image: url(/img/close.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    height: 30px;
+    width: 30px;
+ }
+
+/* Стили для уровней персонажей */
+.hero-name {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    height: 30px;
+    width: 110px;
+    z-index: 3;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    background-color: rgba(255, 193, 7, 0.5);
+    line-height: 30px;
+    user-select: none;
 }
