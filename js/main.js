@@ -8,7 +8,8 @@ for (let currentStar of stars) {
     currentStar.addEventListener('click', function() {
         currentStar.classList.toggle('stars_click');
         currentStar.classList.toggle('no-active-star');
-        sumActiveStars = document.querySelectorAll('.stars_click').length;
+        countActiveStars();
+        
         if (sumActiveStars === 5) {
             makeActiveChangeHero();
         }
@@ -16,6 +17,13 @@ for (let currentStar of stars) {
             changeHeroButton.addEventListener('click', changeHero);
             }
     });
+};
+
+// Функция считающая количество активных звезд
+
+let countActiveStars = function() {
+    sumActiveStars = document.querySelectorAll('.stars_click').length;
+    return sumActiveStars;
 }
 
 // Сделать кнопку "Сменить Героя" активной после 5 звезд
@@ -67,6 +75,14 @@ for (let currentPlus of plus) {
         let firstNoActiveStars = document.querySelector('.no-active-star');
         firstNoActiveStars.classList.toggle('stars_click');
         firstNoActiveStars.classList.toggle('no-active-star');
+        countActiveStars();
+        
+        if (sumActiveStars === 5) {
+            makeActiveChangeHero();
+        }
+        if (changeHeroButton.classList.contains('active-button')) {
+            changeHeroButton.addEventListener('click', changeHero);
+            }
     }
     else {
         currentPlus.previousElementSibling.style.width = aroundWidth[1];
@@ -75,6 +91,7 @@ for (let currentPlus of plus) {
 }
 });
 }
+
 // Событие на клик по "-"
 let minus = document.querySelectorAll('.minus');
 for (let currentMinus of minus) {
@@ -137,6 +154,7 @@ for (let eachHero of hero) {
         eachHero.firstElementChild.classList.add('hidden');
     });
 }
+
 
 
 
