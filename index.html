@@ -9,53 +9,56 @@
 <body>
 <main class="container">
   <div class="lower-layer"></div>
-    <div>Твое Геройское имя</div>
-    <div class="character">
-      <img src="img/lvl1.png" class="current-avatar">
+  <div class="hero-name">Твое геройское имя:</div>
+  <div class="user-name">'< ---- >'</div>
+  <img src="img/changeName.ico" class="change-name">
+  <div class="character">
+    <img src="img/lvl1.png" class="current-avatar">
+  </div>
+  <div class="stars">
+    <div class="star no-active-star"></div>
+    <div class="star no-active-star"></div>
+    <div class="star no-active-star"></div>
+    <div class="star no-active-star"></div>
+    <div class="star no-active-star"></div>
+  </div>
+  <div class="current-level"></div>
+  <div class="parameters parameter-int">
+    <span class="name-parameter name-int">Интеллект:</span>
+    <div class="parameter int-parameter"></div>
+    <div class="cover-par"></div>
+    <span class="button-plus-minus plus">+</span>
+    <span class="button-plus-minus minus">-</span>
+    <div class="counter">0</div>
+  </div>
+  <div class="parameters parameter-str">
+    <span class="name-parameter name-str">Сила:</span>
+    <div class="parameter str-parameter"></div>
+    <div class="cover-par"></div>
+    <span class="button-plus-minus plus">+</span>
+    <span class="button-plus-minus minus">-</span>
+    <div class="counter">0</div>
+  </div>
+  <div class="parameters parameter-wol">
+    <span class="name-parameter name-wol">Воля:</span>
+    <div class="parameter wol-parameter"></div>
+    <div class="cover-par"></div>
+    <span class="button-plus-minus plus">+</span>
+    <span class="button-plus-minus minus">-</span>
+    <div class="counter">0</div>
+  </div>
+  <img src="/img/separator.png" class="separator">
+  <div class="buttons-container">
+  <div class="show-all-heroes heroes-button active-button"><span>ПОКАЗАТЬ ГЕРОЕВ</span></div>
+  <div class="change-hero heroes-button no-active-button"><span>СМЕНИТЬ ГЕРОЯ</span></div>
+  </div>
+  <div class="heroes hidden">
+    <span class="button-close-heroes"></span>
+    <template id="new-hero">
+      <div class="hero">
+      <span class="hero-level hidden"></span>
     </div>
-    <div class="stars">
-      <div class="star no-active-star"></div>
-      <div class="star no-active-star"></div>
-      <div class="star no-active-star"></div>
-      <div class="star no-active-star"></div>
-      <div class="star no-active-star"></div>
-    </div>
-    <div class="parameters parameter-int">
-      <span class="name-parameter name-int">Интеллект:</span>
-      <div class="parameter int-parameter"></div>
-      <div class="cover-par"></div>
-      <span class="button-plus-minus plus">+</span>
-      <span class="button-plus-minus minus">-</span>
-      <div class="counter">0</div>
-    </div>
-    <div class="parameters parameter-str">
-      <span class="name-parameter name-str">Сила:</span>
-      <div class="parameter str-parameter"></div>
-      <div class="cover-par"></div>
-      <span class="button-plus-minus plus">+</span>
-      <span class="button-plus-minus minus">-</span>
-      <div class="counter">0</div>
-    </div>
-    <div class="parameters parameter-wol">
-      <span class="name-parameter name-wol">Воля:</span>
-      <div class="parameter wol-parameter"></div>
-      <div class="cover-par"></div>
-      <span class="button-plus-minus plus">+</span>
-      <span class="button-plus-minus minus">-</span>
-      <div class="counter">0</div>
-    </div>
-    <img src="/img/separator.png" class="separator">
-    <div class="buttons-container">
-    <div class="show-all-heroes heroes-button active-button"><span>ПОКАЗАТЬ ГЕРОЕВ</span></div>
-    <div class="change-hero heroes-button no-active-button"><span>СМЕНИТЬ ГЕРОЯ</span></div>
-    </div>
-    <div class="heroes hidden">
-      <span class="button-close-heroes"></span>
-      <template id="new-hero">
-        <div class="hero">
-        <span class="hero-name hidden"></span>
-      </div>
-      </template>
+    </template>
     </div>
 </main>
 <script src='js/main.js'></script>

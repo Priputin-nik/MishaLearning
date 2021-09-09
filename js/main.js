@@ -1,5 +1,14 @@
 'use strict'
 
+// Кнопка "Сменить героя"
+
+let changeHeroButton = document.querySelector('.change-hero');
+
+// Номер следующего героя и переменная с текущим аватаром
+
+let numberNextHero = 2;
+let currentAvatar = document.querySelector('.current-avatar');
+
 // Звезды
 
 let stars = document.querySelectorAll('.star');
@@ -9,44 +18,51 @@ for (let currentStar of stars) {
         currentStar.classList.toggle('stars_click');
         currentStar.classList.toggle('no-active-star');
         countActiveStars();
-        
         if (sumActiveStars === 5) {
             makeActiveChangeHero();
         }
+        if (sumActiveStars !== 5) {
+            makeDisActiveChangeHero();
+            changeHeroButton.removeEventListener('click', changeHero);
+        }
         if (changeHeroButton.classList.contains('active-button')) {
             changeHeroButton.addEventListener('click', changeHero);
-            }
+        }
     });
 };
 
 // Функция считающая количество активных звезд
 
-let countActiveStars = function() {
+function countActiveStars() {
     sumActiveStars = document.querySelectorAll('.stars_click').length;
     return sumActiveStars;
 }
 
 // Сделать кнопку "Сменить Героя" активной после 5 звезд
 
-let changeHeroButton = document.querySelector('.change-hero');
-let makeActiveChangeHero = function() {
+function makeActiveChangeHero() {
     changeHeroButton.classList.add('active-button');
     changeHeroButton.classList.remove('no-active-button');
-
 }
 
-// Смена героя: функция-колбэк для кнопки changeHeroButton
-
-let numberNextHero = 2;
-let currentAvatar = document.querySelector('.current-avatar');
-let changeHero = function() {
+function makeDisActiveChangeHero() {
     changeHeroButton.classList.remove('active-button');
     changeHeroButton.classList.add('no-active-button');
+}
+// Смена героя: функция-колбэк для кнопки changeHeroButton
+
+function changeHero() {
+    changeHeroButton.classList.toggle('active-button');
+    changeHeroButton.classList.toggle('no-active-button');
     currentAvatar.src = `img/lvl${numberNextHero++}.png`;
     for (let currentStar of stars) {
         currentStar.classList.remove('stars_click');
+        currentStar.classList.add('no-active-star');
     }
+    changeHeroButton.removeEventListener('click', changeHero);
 }
+
+
 
 
 // Настройка повышения и понижения показателей
@@ -75,14 +91,18 @@ for (let currentPlus of plus) {
         let firstNoActiveStars = document.querySelector('.no-active-star');
         firstNoActiveStars.classList.toggle('stars_click');
         firstNoActiveStars.classList.toggle('no-active-star');
+
         countActiveStars();
-        
         if (sumActiveStars === 5) {
             makeActiveChangeHero();
         }
+        if (sumActiveStars !== 5) {
+            makeDisActiveChangeHero();
+            changeHeroButton.removeEventListener('click', changeHero);
+        }
         if (changeHeroButton.classList.contains('active-button')) {
             changeHeroButton.addEventListener('click', changeHero);
-            }
+        }
     }
     else {
         currentPlus.previousElementSibling.style.width = aroundWidth[1];
@@ -135,10 +155,10 @@ showHeroes.addEventListener ('click', function(){
 
 // Поиск всех "Имен" Героев (уровней) и присваивание
 
-let nameHero = document.querySelectorAll('.hero-name');
+let nameLevel = document.querySelectorAll('.hero-level');
 let lvl = 1;
-for (let currentNameHero of nameHero) {
-    currentNameHero.textContent = `Уровень ${lvl++}`;
+for (let currentLevelHero of nameLevel) {
+    currentLevelHero.textContent = `Уровень ${lvl++}`;
 }
 
 // Показывать уровень героя при наведении
@@ -155,6 +175,13 @@ for (let eachHero of hero) {
     });
 }
 
+
+// Геройское имя
+let heroName = document.querySelector('.user-name');
+let buttonChangeName = document.querySelector('.change-name');
+buttonChangeName.addEventListener('click', function() {
+    heroName.textContent = prompt('Введите новое геройское имя', heroName.textContent);
+})
 
 
 
