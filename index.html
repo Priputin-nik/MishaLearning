@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="/img/superheroTitle.png">
   <title>Misha Learning</title>
 </head>
 <body>
@@ -22,14 +23,22 @@
     <div class="star no-active-star"></div>
     <div class="star no-active-star"></div>
   </div>
-  <div class="current-level"></div>
+  <!-- Блок с описанием достижений -->
+  <div class="achive-description hidden">
+    <span class="button-close-description"></span>
+    <div class="avatar-achivement"></div>
+    <div class="activation-achivement-button"></div>
+    <div class="deactivation-achivement-button"></div>
+    <div class="description-achivement-block"><span class="description-achivement">Содержание достижения</span></div>
+  </div>
+  <!-- <div class="current-level"></div> -->
   <div class="parameters parameter-int">
     <span class="name-parameter name-int">Интеллект:</span>
     <div class="parameter int-parameter"></div>
     <div class="cover-par"></div>
     <span class="button-plus-minus plus">+</span>
     <span class="button-plus-minus minus">-</span>
-    <div class="counter">0</div>
+    <div class="counter counter-int">0</div>
   </div>
   <div class="parameters parameter-str">
     <span class="name-parameter name-str">Сила:</span>
@@ -37,7 +46,7 @@
     <div class="cover-par"></div>
     <span class="button-plus-minus plus">+</span>
     <span class="button-plus-minus minus">-</span>
-    <div class="counter">0</div>
+    <div class="counter counter-str">0</div>
   </div>
   <div class="parameters parameter-wol">
     <span class="name-parameter name-wol">Воля:</span>
@@ -45,22 +54,35 @@
     <div class="cover-par"></div>
     <span class="button-plus-minus plus">+</span>
     <span class="button-plus-minus minus">-</span>
-    <div class="counter">0</div>
+    <div class="counter counter-wol">0</div>
   </div>
   <img src="/img/separator.png" class="separator">
   <div class="buttons-container">
   <div class="show-all-heroes heroes-button active-button"><span>ПОКАЗАТЬ ГЕРОЕВ</span></div>
   <div class="change-hero heroes-button no-active-button"><span>СМЕНИТЬ ГЕРОЯ</span></div>
+  <div class= "show-achivement heroes-button active-button"><span>ПОКАЗАТЬ ДОСТИЖЕНИЯ</span></div>
   </div>
   <div class="heroes hidden">
     <span class="button-close-heroes"></span>
-    <template id="new-hero">
+    <template class="new-hero">
       <div class="hero">
       <span class="hero-level hidden"></span>
     </div>
     </template>
     </div>
+    <div class="achivements-title">Полученные достижения:</div>
+    <div class="open-achivements"></div>
+      <div class="all-achivements hidden">
+        <span class="button-close-achivement"></span>
+        <template class="new-achivement">
+          <div class="achivement-element" >
+            <div class="achive-img"></div>
+            <span class="achive-title"></span>
+          </div>
+        </template>
+      </div>
 </main>
+
 <script src='js/main.js'></script>
 </body>
 </html>

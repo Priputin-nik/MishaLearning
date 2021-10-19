@@ -7,7 +7,7 @@ body {
 .container {
     display: grid;
     grid-template-columns: 1fr 240px 340px 1fr;
-    grid-template-rows: 100px 70px 70px 70px 70px 40px 200px;
+    grid-template-rows: 100px 70px 70px 70px 70px 40px 40px 1fr;
 
 }
 .lower-layer {
@@ -63,9 +63,9 @@ body {
 
 /* Текущий уровень */
 
-.current-level {
+/* .current-level {
 
-}
+} */
 
 /* Разделитель */
 
@@ -74,6 +74,56 @@ body {
     height: auto;
     width: 600px;
     grid-area: 6/2/7/4;
+    position: relative;
+    right: 10px;
+}
+
+/* Достижения (общий блок) */
+
+.open-achivements, .all-achivements {
+    display: inline-block;
+    grid-area: 8/2/9/4;
+    position: relative;
+}
+
+/* Достижения (Заголовок) */
+
+.achivements-title {
+    grid-area: 7/2/8/4;
+    display: inline-block;
+    text-align: center;
+    left: 220px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px;
+}
+
+/* Достижения (Элементы) */
+
+.achivement-element {
+    display: inline-block;
+    margin-left: 18px;
+    margin-top: 15px;
+}
+
+/* Достижения иконки */
+
+.achive-img {
+    display: inline-block;
+    background-image: url(/img/lvl1.png);
+    width: 120px;
+    height: 120px;
+}
+
+/* Блок "Все Достижения" */
+
+.all-achivements {
+    padding-top: 40px;
+    display: inline-block;
+    position: relative;
+    width: 580px;
+    height: auto;
+    z-index: 3;
+    border: 6px double;
 }
 
 /* Иконка текущего персонажа */
@@ -225,12 +275,13 @@ body {
     display: inline-block;
     position: relative;
     width: 530px;
-    height: auto;
+    height: 430px;
     grid-area: 7/2/9/4;
     z-index: 3;
     border: 6px double;
     padding: 20px;
 }
+
 .hidden {
     visibility: hidden;
 }
@@ -256,7 +307,7 @@ body {
     grid-area: 5/3/6/4;
 }
 
-/* Кнопки "Показать героев" и "Сменить Героя" */
+/* Кнопки "Показать героев", "Сменить Героя" и "Показать Достижения"*/
 
 .heroes-button {
     display: inline-block;
@@ -287,23 +338,32 @@ body {
 .no-active-button {
     background-color: rgba(148, 139, 139, 1);
 }
+
 /* Позиционирование кнопки "Показать всех Героев" */
 
 .show-all-heroes {
-    left: 20px;
+    left: 10px;
     top: 15px;
 }
 
 /* Позиционирование кнопки "Сменить Героя" */
 
 .change-hero {
-    left: 150px;
+    left: 115px;
     top: 15px;
 }
 
-/* Кнопка "Закрыть Героев" */
+/* Позиционирование кнопки "Показать достижения" */
 
- .button-close-heroes {
+.show-achivement {
+    left: 220px;
+    top: 15px;
+    width: 110px;
+}
+
+/* Кнопка "Закрыть Героев" и "Закрыть Достижения" */
+
+ .button-close-heroes, .button-close-achivement, .button-close-description {
     display: inline-block;
     position: absolute;
     right: 10px;
@@ -314,6 +374,31 @@ body {
     height: 30px;
     width: 30px;
  }
+
+/* Блок с описанием достижений */
+
+.achive-description {
+    display: inline-block;
+    background: url(/img/paper.jpg);
+    grid-area: 2/2/6/4;
+    z-index: 2;
+    width: 105%;
+    height: 105%;
+    position: relative;
+    bottom: 8%;
+    right: 2.5%;
+    border: 2px solid black;
+}
+
+.avatar-achivement {
+    display: inline-block;
+    position: absolute;
+    height: 160px;
+    width: 160px;
+    background: url() center / 100% 100%;
+    left: 20px;
+    top: 20px;
+}
 
 /* Стили для уровней персонажей */
 
@@ -332,3 +417,60 @@ body {
     line-height: 30px;
     user-select: none;
 }
+
+/* Кнопки "Активировать" и "Деактивировать" достижения */
+
+.activation-achivement-button, .deactivation-achivement-button {
+    display: inline-block;
+    position: absolute;
+    height: 45px;
+    width: 45px;
+}
+
+.activation-achivement-button {
+    background-image: url(/img/checkmarkCross.png);
+    background-size: 200px;
+    background-position: -6px -72px;
+    background-repeat: no-repeat;
+    left: 40px;
+    bottom: 20px
+}
+
+.deactivation-achivement-button {
+    background-image: url(/img/checkmarkCross.png);
+    background-size: 200px;
+    background-position: -7px -25px;
+    background-repeat: no-repeat;
+    left: 110px;
+    bottom: 20px
+}
+
+/* Поле для описания Достижений */
+
+.description-achivement-block {
+    display: table;
+    height: 250px;
+    width: 300px;
+    /* background-image: url(/img/scroll.png); */
+    background-color:rgba(175, 164, 164, 0.8);
+    border-radius: 50px;
+    border: 2px solid black;
+    z-index: 8;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+    left: 250px;
+    top: 20px;
+}
+
+.description-achivement {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 20px;
+}
+
+/* Достижения */
+
+
+
